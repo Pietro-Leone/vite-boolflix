@@ -1,5 +1,5 @@
 <script>
-import { store , resultsList } from "../store";
+import { store, resultsList } from "../store";
 export default {
   components: {
   },
@@ -22,7 +22,7 @@ export default {
     <div class="container">
       <a class="navbar-brand" href="../../index.html"><img src="../assets/img/Boolflix-logo.png" height="50" alt=""></a>
       <div class="d-flex" role="search">
-        <input type="search" class="form-control me-2 search-area" rows="1" placeholder="Cerca" aria-label="Search"
+        <input type="search" class="form-control search-area" rows="1" placeholder="Cerca" aria-label="Search"
           v-model="store.search" @keyup.enter="resultsList('https://api.themoviedb.org/3/search/movie')">
       </div>
     </div>
@@ -30,14 +30,24 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-nav{
+nav {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1;
+  z-index: 999;
   background-color: black;
 
 }
+
+.form-control {
+  background-color: black !important;
+  color: white !important;
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem #DA1927;
+  }
+}
+
 .search-area {
   resize: none;
   height: 2rem;

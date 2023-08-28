@@ -9,7 +9,14 @@ export default {
 </script>
 
 <template>
-  <div class="container my-5">
+
+  <div class="container mt-5" style="color: white;">
+    <div class="row">
+      <h1 style="font-size: 5rem;">Film</h1>
+    </div>
+  </div>
+
+  <div class="container-fluid my-5">
     <List />
   </div>
 </template>
