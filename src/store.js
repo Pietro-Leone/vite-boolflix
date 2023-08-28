@@ -2,13 +2,11 @@ import axios from "axios";
 import { reactive } from "vue";
 
 export const store = reactive({
-  risultati: [],
+  list: [],
   search: ""
 });
 
-export function resultsList() {
-
-  const url = "https://api.themoviedb.org/3/search/movie";
+export function resultsList(url) {
 
   axios.get(url, {
     params: {
@@ -16,8 +14,8 @@ export function resultsList() {
       query: store.search,
     }
   }).then((response) => {
-    store.risultati = response.data.results;
-    console.log(store.risultati);
+    store.list = response.data.results;
+    console.log(store.list);
     store.search = "";
   });
 }

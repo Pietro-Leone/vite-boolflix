@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <div class="container mt-5">
+  <div class="container my-5">
     <List />
   </div>
 </template>
