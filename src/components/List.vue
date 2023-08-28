@@ -1,16 +1,15 @@
 <script>
-import { } from "../store";
-import List from "./List.vue"
+import Card from "./Card.vue"
 export default {
   components: {
-    List,
+    Card,
   }
 }
 </script>
 
 <template>
-  <div class="container mt-5">
-    <List />
+  <div class="row">
+    <Card />
   </div>
 </template>
 
