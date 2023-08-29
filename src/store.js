@@ -3,12 +3,11 @@ import { reactive } from "vue";
 
 export const store = reactive({
   list: [],
-  lists: [],
   search: ""
 });
 
 export function resultsList(urls) {
-  store.lists = [];
+  store.list = [];
 
   const requests = urls.map((url) => axios.get(url, {
     params: {
@@ -18,12 +17,11 @@ export function resultsList(urls) {
   }));
   axios.all(requests).then((responses) => {
     responses.forEach((response) => {
-      store.list = response.data.results;
-      store.lists.push(...store.list)
+      store.list.push(...response.data.results)
       store.search = "";
     })
-    console.log(store.lists);
   });
+  console.log(store.list);
 }
 
 export function starVote(x) {

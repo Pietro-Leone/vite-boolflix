@@ -14,18 +14,20 @@ export default {
 </script>
 
 <template>
-  <div class="row gy-5 justify-content-between align-items-center">
-    <div class="my-col position-relative" v-for="element in store.lists">
-      <div class="d-flex justify-content-center" style="min-width: 280px; min-height: 159px;">
-        <Card :card="element" />
+  <div class="row gy-5 justify-content-center align-items-center">
+    <div class="d-flex">
+      <div class="my-col position-relative" v-for="element in store.list">
+        <div class="d-flex justify-content-center">
+          <Card :card="element" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.my-col{
+.my-col {
   flex-basis: min-content;
-  padding: 0;
+  padding: .5rem;
 }
 </style>

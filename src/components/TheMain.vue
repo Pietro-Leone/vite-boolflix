@@ -16,9 +16,18 @@ export default {
     </div>
   </div>
 
-  <div class="container my-5">
+  <div class="container my-slider my-5">
     <List />
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.my-slider{
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 400px;
+}
+</style>
