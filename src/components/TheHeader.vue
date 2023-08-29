@@ -6,13 +6,15 @@ export default {
   data() {
     return {
       store,
+      url: ["https://api.themoviedb.org/3/search/multi"],
+      urls: ["https://api.themoviedb.org/3/discover/movie", "https://api.themoviedb.org/3/discover/tv"],
     }
   },
   methods: {
     resultsList,
   },
   mounted() {
-    resultsList("https://api.themoviedb.org/3/discover/movie")
+    resultsList(this.urls)
   }
 }
 </script>
@@ -23,7 +25,7 @@ export default {
       <a class="navbar-brand" href="../../index.html"><img src="../assets/img/Boolflix-logo.png" height="50" alt=""></a>
       <div class="d-flex" role="search">
         <input type="search" class="form-control search-area rounded-0" rows="1" placeholder="Cerca" aria-label="Search"
-          v-model="store.search" @keyup.enter="resultsList('https://api.themoviedb.org/3/search/movie')">
+          v-model="store.search" @keyup.enter="resultsList(url)">
       </div>
     </div>
   </nav>
@@ -47,7 +49,8 @@ nav {
     box-shadow: 0 0 0 0.08rem #DA1927;
     border-color: #DA1927;
   }
-  &::placeholder{
+
+  &::placeholder {
     color: white;
   }
 }

@@ -27,8 +27,8 @@ export default {
     <img :src="card.poster_path === null ? `` : `http://image.tmdb.org/t/p/w500/${card.poster_path}`" class="card-img-top"
       :alt="card.title">
     <div class="card-body" v-if="hover">
-      <h5 class="card-title">{{ card.title }}</h5>
-      <p class="card-title">{{ card.original_title }}</p>
+      <h5 class="card-title">{{ card.title ? card.title : card.name }}</h5>
+      <p class="card-title">{{ card.original_title ? card.original_title : card.original_name }}</p>
       <lang-flag :iso="card.original_language" />
       <!-- <p class="card-text">{{ card.vote_average }}</p> -->
       <div>
@@ -55,8 +55,7 @@ img {
 }
 
 .card {
-  max-width: 330px;
-  min-width: 240px;
+  min-width: 280px;
   aspect-ratio: 16/9;
   cursor: pointer;
 
