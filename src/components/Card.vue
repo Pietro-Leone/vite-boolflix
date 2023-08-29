@@ -9,15 +9,27 @@ export default {
       type: Object,
       required: true,
     }
+  },
+  data() {
+    return {
+      hover: false,
+    }
+  },
+  methods: {
+    hoverFN() {
+      setTimeout(() => {
+        this.hover = true;
+      }, 1000);
+    }
   }
 }
 </script>
 
 <template>
-  <div class="card h-100">
+  <div class="card h-100" @mouseover="hover = true" @mouseleave="hover = false">
     <img :src="card.poster_path === null ? `` : `http://image.tmdb.org/t/p/w500/${card.poster_path}`" class="card-img-top"
       :alt="card.title">
-    <div class="card-body">
+    <div class="card-body" v-if="hover">
       <h5 class="card-title">{{ card.title }}</h5>
       <p class="card-title">{{ card.original_title }}</p>
       <lang-flag :iso="card.original_language" />
@@ -44,22 +56,6 @@ img {
   min-width: 240px;
   aspect-ratio: 16/9;
   cursor: pointer;
-  
-  &:hover {
-    transition: transform .5s;
-    transform: scale(1.5);
-    transform-origin: top;
-    position: absolute;
-    top: 0;
-
-    z-index: 1;
-    top: -114px;
-    height: fit-content !important;
-
-    .card-body {
-      display: block
-    }
-  }
 
   .card-body {
     background-color: black;
@@ -68,7 +64,17 @@ img {
     border-top-right-radius: 0;
     color: white;
     width: 100%;
-    display: none;
   }
+
+  &:hover {
+    transition: transform .5s;
+    transform: scale(1.2);
+    position: absolute;
+    z-index: 1;
+    top: -114px;
+    height: fit-content !important;
+
+  }
+
 }
 </style>

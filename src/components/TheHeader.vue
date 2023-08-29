@@ -22,7 +22,7 @@ export default {
     <div class="container">
       <a class="navbar-brand" href="../../index.html"><img src="../assets/img/Boolflix-logo.png" height="50" alt=""></a>
       <div class="d-flex" role="search">
-        <input type="search" class="form-control search-area" rows="1" placeholder="Cerca" aria-label="Search"
+        <input type="search" class="form-control search-area rounded-0" rows="1" placeholder="Cerca" aria-label="Search"
           v-model="store.search" @keyup.enter="resultsList('https://api.themoviedb.org/3/search/movie')">
       </div>
     </div>
@@ -44,7 +44,11 @@ nav {
   color: white !important;
 
   &:focus {
-    box-shadow: 0 0 0 0.25rem #DA1927;
+    box-shadow: 0 0 0 0.08rem #DA1927;
+    border-color: #DA1927;
+  }
+  &::placeholder{
+    color: white;
   }
 }
 
