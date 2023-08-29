@@ -1,5 +1,6 @@
 <script>
 import LangFlag from 'vue-lang-code-flags';
+import { starVote } from '../store';
 export default {
   components: {
     LangFlag,
@@ -16,11 +17,7 @@ export default {
     }
   },
   methods: {
-    hoverFN() {
-      setTimeout(() => {
-        this.hover = true;
-      }, 1000);
-    }
+    starVote,
   }
 }
 </script>
@@ -33,7 +30,13 @@ export default {
       <h5 class="card-title">{{ card.title }}</h5>
       <p class="card-title">{{ card.original_title }}</p>
       <lang-flag :iso="card.original_language" />
-      <p class="card-text">{{ card.vote_average }}</p>
+      <!-- <p class="card-text">{{ card.vote_average }}</p> -->
+      <div>
+        <div class="stars-outer">
+          <div class="stars-inner" :style="`width: ${starVote(card.vote_average)};`"></div>
+        </div>
+      </div>
+      <!--  -->
     </div>
   </div>
 </template>
@@ -75,6 +78,33 @@ img {
     height: fit-content !important;
 
   }
+
+  //
+  .stars-outer {
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome;
+  }
+
+  .stars-outer::before {
+    content: "\f006 \f006 \f006 \f006 \f006";
+  }
+
+  .stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+  }
+
+  .stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    color: #f8ce0b;
+  }
+
+  //
 
 }
 </style>

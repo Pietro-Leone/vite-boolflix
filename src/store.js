@@ -15,7 +15,19 @@ export function resultsList(url) {
     }
   }).then((response) => {
     store.list = response.data.results;
-    console.log(store.list);
     store.search = "";
   });
+}
+
+export function starVote(x) {
+  const xFloat = parseFloat(x);
+  const ratings = xFloat / 2;
+
+  const starTotal = 5;
+
+  const starPercentage = (ratings / starTotal) * 100;
+
+  const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+
+  return starPercentageRounded;
 }
